@@ -26,11 +26,10 @@
             const div = document.querySelector('div.posts')
             div.innerText = ""
             for (let i = 0; i < data.length; i++) {
-            const post = data[i]
-            
-            criarElemento(post['title'], '#FF99B0')
-            criarElemento(post['body'], '#4E97D1')
-        }
+                const post = data[i]
+                criarElemento(post['title'], '#FF99B0')
+                criarElemento(post['body'], '#4E97D1')
+            }
         })
         
     </script>

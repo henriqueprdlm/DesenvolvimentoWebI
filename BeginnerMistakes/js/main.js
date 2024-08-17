@@ -6,6 +6,3 @@ const posts = () => {
 }
 
 export {mensagem, posts};
-function mostrarDados() {
-    console.log('Teste');
-}
