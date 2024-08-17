@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js"></script>
+    <script type="module">
+        import { mensagem, posts } from "./js/main.js";
+        console.log(mensagem);
+
+        const data = await posts()
+        console.log(data)
+
+        const criarElemento = (texto, cor) => {
+            const div = document.querySelector('div.posts')
+            const p = document.createElement('p')
+            p.innerText = texto
+            p.style.color = cor
+            div.appendChild(p)
+        }
+
+        const botaoMostrarDados = document.querySelector('button#botaoMostrarDados')
+        botaoMostrarDados.addEventListener('click', function() {
+            const div = document.querySelector('div.posts')
+            div.innerText = ""
+            for (let i = 0; i < data.length; i++) {
+            const post = data[i]
+            
+            criarElemento(post['title'], '#FF99B0')
+            criarElemento(post['body'], '#4E97D1')
+        }
+        })
+        
+    </script>
+
+    <title>Beginner Mistakes</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta fuga voluptatum sed unde, autem nihil quae totam, dicta provident quaerat in natus debitis ullam magni inventore rem ratione, vero praesentium.
+    Aliquid mollitia similique sunt pariatur optio soluta tenetur vero odio fugit at eveniet omnis alias ea autem magni, corrupti dolores delectus aspernatur assumenda ut? Omnis laboriosam expedita quae nam dolores.
+    Nostrum aspernatur eum commodi enim beatae tempore voluptas odio natus, quis iste sequi nobis ad modi reiciendis soluta molestiae, repellat maxime! Dolore officiis, officia esse repudiandae reiciendis consequatur iste eum.
+    Quae error fugit nihil harum enim, consequatur perspiciatis sit rerum nobis sint aliquid suscipit deserunt animi unde temporibus autem numquam rem quis itaque, totam eveniet! Quo sed inventore eius repellat.
+    Deserunt doloremque officiis ipsa asperiores explicabo non laborum blanditiis a, exercitationem voluptatum. Eum, esse consectetur inventore distinctio beatae facilis provident tempore nesciunt nulla omnis, quod consequatur fuga? Obcaecati, nam illo?</p>
+
+    <button id="botaoMostrarDados">Clique aqui</button>
+
+    <div class="posts"></div>
+</body>
+</html>
